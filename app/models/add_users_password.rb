@@ -1,0 +1,2 @@
+class AddUsersPassword < ApplicationRecord
+end
