@@ -1,11 +1,27 @@
 <div>
   <%= form_with(model: @recipe, local: true) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title, placeholder: "Recipe Name" %>
-    <%= f.label :description %>
-    <%= f.text_area :description, rows: 10, placeholder: "Recipe Instructions" %>
-    <%= f.label :image %>
-    <%= f.text_field :image, placeholder: "Image url" %>
-    <%= f.submit %>
+    <div>
+      <p>
+        <%= f.label :title %>
+        <%= f.text_field :title, placeholder: "Recipe Name" %>
+      </p>
+    </div>
+    <div>
+      <p>
+        <%= f.label :description %>
+        <%= f.text_area :description, rows: 10, placeholder: "Recipe Instructions" %>
+      </p>
+    </div>
+    <div>
+      <p>
+        <%= f.label :image %>
+        <%= f.text_field :image, placeholder: "Image url" %>
+      </p>
+    </div>
+    <div>
+      <p>
+        <%= f.submit %>
+      </p>
+    </div>
   <% end %>
 </div>
