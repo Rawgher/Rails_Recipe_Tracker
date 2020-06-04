@@ -1,0 +1,11 @@
+<div>
+  <%= form_with(model: @recipe, local: true) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Recipe Name" %>
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 10, placeholder: "Recipe Instructions" %>
+    <%= f.label :image %>
+    <%= f.text_field :image, placeholder: "Image url" %>
+    <%= f.submit %>
+  <% end %>
+</div>
