@@ -45,7 +45,7 @@ class RecipesController < ApplicationController
   private
 
   def set_recipe
-    @article = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def recipe_params
