@@ -1,1 +1,10 @@
 <h1>category show page</h1>
+
+<h1>Category: <%= @category.name %></h1>
+<span><%= link_to "Edit Category Name", edit_category_path(@category) %></span>
+
+<%# <%= render 'category_listing' %> %>
+
+<div class="apple_pagination">
+    <%= will_paginate @category_articles, :container => false %>
+</div>
