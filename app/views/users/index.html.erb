@@ -1,1 +1,10 @@
 <h1>User index page</h1>
+<div>
+  <% @users.each do |user| %>
+    <%= link_to user.username, user %>
+    <%= pluralize(user.recipes.count, "recipes") %>
+    <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-info" %>
+    <%= link_to "Delete User", user_path(user), class: "btn btn-outline-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+    <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
+  <% end %>
+</div>
