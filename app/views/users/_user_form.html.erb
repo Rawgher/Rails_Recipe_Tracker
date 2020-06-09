@@ -9,18 +9,18 @@
     <div>
       <p>
         <%= f.label :email %>
-        <%= f.text_field :email, placeholder: "Enter a username" %>
+        <%= f.text_field :email, placeholder: "Enter your email" %>
       </p>
     </div>
     <div>
       <p>
         <%= f.label :password %>
-        <%= f.text_field :password, placeholder: "Enter a username" %>
+        <%= f.text_field :password, placeholder: "Create a password" %>
       </p>
     </div>
     <div>
       <p>
-        <%= f.submit(@user.new_record? ? "Sign up" : "Update Account", class: "btn btn-outline-light btn-lg") %>
+        <%= f.submit(@user.new_record? ? "Sign up" : "Update Account") %>
       </p>
     </div>
   <% end %>

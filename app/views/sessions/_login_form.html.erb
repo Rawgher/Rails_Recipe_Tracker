@@ -1,0 +1,21 @@
+<div>
+  <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+    <div>
+      <p>
+        <%= f.label :username %>
+        <%= f.text_field :username, placeholder: "Enter your username" %>
+      </p>
+    </div>
+    <div>
+      <p>
+        <%= f.label :password %>
+        <%= f.text_field :password, placeholder: "Enter your password" %>
+      </p>
+    </div>
+    <div>
+      <p>
+        <%= f.submit "Log in" %>
+      </p>
+    </div>
+  <% end %>
+</div>
