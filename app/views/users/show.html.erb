@@ -1,1 +1,7 @@
 <h1>User show page</h1>
+<h2><%= @user.username %></h2>
+
+<%= render 'recipes/recipe' %>
+<div class="apple_pagination">
+    <%= will_paginate @recipes, :container => false %>
+</div>

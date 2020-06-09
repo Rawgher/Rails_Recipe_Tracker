@@ -30,7 +30,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # adding session to log the user in when they sign up
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to the Blog #{@user.username}, you're all signed up"
       redirect_to recipes_path
