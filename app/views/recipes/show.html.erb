@@ -3,4 +3,7 @@
 <h2><%= @recipe.title %></h2>
 <div><%= simple_format(@recipe.description) %></div>
 <div><%= simple_format(@recipe.image) %></div>
+<% if @recipe.categories.any? %>
+  <p>Categories: <%= render @recipe.categories %></p>
+<% end %>
 <small>Created <%= time_ago_in_words(@recipe.created_at) %> ago, edited <%= time_ago_in_words(@recipe.updated_at) %> ago</small>

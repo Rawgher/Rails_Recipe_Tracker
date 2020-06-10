@@ -20,6 +20,12 @@
     </div>
     <div>
       <p>
+        <%= f.label :category %>
+         <%= f.collection_select(:category_ids, Category.all, :id, :name, {prompt: "Please Select From the List (can be empty)"}, {multiple: true, size: 3}) %>
+      </p>
+    </div>
+    <div>
+      <p>
         <%= f.submit %>
       </p>
     </div>

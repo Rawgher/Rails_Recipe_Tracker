@@ -1,0 +1,13 @@
+<div>
+  <% @category_recipes.each do |recipe| %>
+    <%= link_to recipe.user.username, user_path(recipe.user) %>
+    <h5><%= link_to recipe.title, recipe_path(recipe) %></h5>
+    <p><%= truncate(recipe.description, length: 100) %></p>
+    <%= link_to "Edit", edit_recipe_path(recipe) %>
+    <%= link_to "Delete", recipe_path(recipe), method: :delete, data: {confirm: "Are you sure?"} %>
+    <% if recipe.categories.any? %>
+      <p>Categories: <%= render recipe.categories %></p>
+    <% end %>
+    <small>Created <%= time_ago_in_words(recipe.created_at) %> ago, edited <%= time_ago_in_words(recipe.updated_at) %> ago</small>
+  <% end %>
+</div>

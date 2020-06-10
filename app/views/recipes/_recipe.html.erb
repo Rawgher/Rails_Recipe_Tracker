@@ -6,6 +6,9 @@
       <%= link_to "View", recipe_path(recipe) %>
       <%= link_to "Edit", edit_recipe_path(recipe) %>
       <%= link_to "Delete", recipe_path(recipe), method: :delete, data: {confirm: "Are you sure?"} %>
+      <% if recipe.categories.any? %>
+          <p>Categories: <%= render recipe.categories %></p>
+        <% end %>
       <small>Created <%= time_ago_in_words(recipe.created_at) %> ago, edited <%= time_ago_in_words(recipe.updated_at) %> ago</small>
     </div>
   <% end %>

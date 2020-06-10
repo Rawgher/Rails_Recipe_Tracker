@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    # @recipe.user = current_user
+    @recipe.user = current_user
     if @recipe.save
       # flash[:notice] = "Recipe was added successfully"
       redirect_to recipe_path(@recipe)
@@ -33,7 +33,7 @@ class RecipesController < ApplicationController
       # flash[:notice] = "Updated recipe successfully"
       redirect_to @recipe
     else
-      render 'edit'
+      render 'show'
     end
   end
 
@@ -49,8 +49,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    # params.require(:recipe).permit(:title, :description, :image, category_ids: [])
-    params.require(:recipe).permit(:title, :description, :image)
+    params.require(:recipe).permit(:title, :description, :image, category_ids: [])
   end
 
   def require_same_user
