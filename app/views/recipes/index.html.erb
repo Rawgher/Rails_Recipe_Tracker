@@ -1,6 +1,8 @@
-<h1>RECIPE INDEX PAGE</h1>
+<h1 class="tc">All Recipes</h1>
 
-<%= render 'recipe' %>
+<div class="w-100 fl">
+  <%= render 'recipe' %>
+</div>
 <div class="apple_pagination">
     <%= will_paginate @recipes, :container => false %>
 </div>
