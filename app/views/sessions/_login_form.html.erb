@@ -1,21 +1,21 @@
-<div>
+<main class="pa4 black-80 w-20">
   <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
-    <div>
-      <p>
-        <%= f.label :username %>
-        <%= f.text_field :username, placeholder: "Enter your username" %>
-      </p>
+    <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
+      <legend class="f4 fw6 ph0 mh0">Sign In</legend>
+      <div class="mt3">
+        <%= f.label :username, class: "db fw6 lh-copy f6" %>
+        <%= f.text_field :username, placeholder: "Enter your username", class: "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mv3">
+        <%= f.label :password, class: "db fw6 lh-copy f6" %>
+        <%= f.text_field :password, placeholder: "Enter your password", class: "b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+    </fieldset>
+    <div class="">
+      <%= f.submit "Sign in", class: "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" %>
     </div>
-    <div>
-      <p>
-        <%= f.label :password %>
-        <%= f.text_field :password, placeholder: "Enter your password" %>
-      </p>
-    </div>
-    <div>
-      <p>
-        <%= f.submit "Log in" %>
-      </p>
+    <div class="lh-copy mt3">
+      <%= link_to "Sign Up", signup_path, class: "f6 link dim black db" %>
     </div>
   <% end %>
-</div>
+</main>
