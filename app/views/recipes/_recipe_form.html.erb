@@ -1,34 +1,26 @@
-<div>
+<main class="pa2 black-80 w-20">
   <%= render 'shared/errors', obj: @recipe %>
   <%= form_with(model: @recipe, local: true) do |f| %>
-    <div>
-      <p>
-        <%= f.label :title %>
-        <%= f.text_field :title, placeholder: "Recipe Name" %>
-      </p>
-    </div>
-    <div>
-      <p>
-        <%= f.label :description %>
-        <%= f.text_area :description, rows: 10, placeholder: "Recipe Instructions" %>
-      </p>
-    </div>
-    <div>
-      <p>
-        <%= f.label :image %>
-        <%= f.text_field :image, placeholder: "Image url" %>
-      </p>
-    </div>
-    <div>
-      <p>
-        <%= f.label :category %>
-         <%= f.collection_select(:category_ids, Category.all, :id, :name, {prompt: "Please Select From the List (can be empty)"}, {multiple: true, size: 3}) %>
-      </p>
-    </div>
-    <div>
-      <p>
-        <%= f.submit %>
-      </p>
+    <fieldset id="new_recipe" class="ba b--transparent ph0 mh0">
+      <div class="mt3">
+        <%= f.label :title, class: "db fw6 lh-copy f6" %>
+        <%= f.text_field :title, placeholder: "Recipe Name", class: "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mv3">
+        <%= f.label :description, class: "db fw6 lh-copy f6" %>
+        <%= f.text_area :description, rows: 10, placeholder: "Recipe Instructions", class: "db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2" %>
+      </div>
+      <div class="mt3">
+        <%= f.label :image, class: "db fw6 lh-copy f6" %>
+        <%= f.text_field :image, placeholder: "Image url", class: "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+      <div class="mt3">
+        <%= f.label :category, class: "db fw6 lh-copy f6" %>
+        <%= f.collection_select(:category_ids, Category.all, :id, :name, {prompt: "Please Select From the List (can be empty)"}, {multiple: true, size: 3}) %>
+      </div>
+    </fieldset>
+    <div class="">
+      <%= f.submit class: "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" %>
     </div>
   <% end %>
-</div>
+</main>
