@@ -1,9 +1,14 @@
-<h1>category show page</h1>
+<h1 class="tc">Category: <%= @category.name %></h1>
 
-<h1>Category: <%= @category.name %></h1>
-<span><%= link_to "Edit Category Name", edit_category_path(@category) %></span>
+<% if logged_in? && current_user.admin? %>
+  <div class="tc">
+    <span><%= link_to "Edit Category Name", edit_category_path(@category) %></span>
+  </div>
+<% end %>
 
-<%= render 'category_listing' %>
+<div class="w-100 fl">
+  <%= render 'category_listing' %>
+</div>
 
 <div class="apple_pagination">
     <%= will_paginate @category_recipes, :container => false %>

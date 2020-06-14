@@ -1,15 +1,22 @@
-<div>
-  <% @category_recipes.each do |recipe| %>
-    <%= link_to recipe.user.username, user_path(recipe.user) %>
-    <h5><%= link_to recipe.title, recipe_path(recipe) %></h5>
-    <p><%= truncate(recipe.description, length: 100) %></p>
-    <% if logged_in? && (recipe.user == current_user || current_user.admin?) %>
-      <%= link_to "Edit", edit_recipe_path(recipe) %>
-      <%= link_to "Delete", recipe_path(recipe), method: :delete, data: {confirm: "Are you sure?"} %>
-    <% end %>
-    <% if recipe.categories.any? %>
-      <p>Categories: <%= render recipe.categories %></p>
-    <% end %>
-    <small>Created <%= time_ago_in_words(recipe.created_at) %> ago, edited <%= time_ago_in_words(recipe.updated_at) %> ago</small>
-  <% end %>
-</div>
+<% @category_recipes.each do |recipe| %>
+  <div class="w-25 fl">
+    <article class="bg-white center mw5 ba b--black-10 mv4">
+      <div class="pv2 ph3">
+         <h1 class="f6 ttu tracked tc"><%= link_to recipe.title, recipe_path(recipe) %></h1>
+      </div>
+      <img src="http://tachyons.io/img/cat-720.jpg" class="w-100 db" alt="Closeup photo of a tabby cat yawning.">
+      <div class="pa3">
+        <% if recipe.categories.any? %>
+          <p>Categories: <%= render recipe.categories %></p>
+        <% end %>
+      </div>
+      <div class="tc">
+        <% if logged_in? && (recipe.user == current_user || current_user.admin?) %>
+          <%= link_to "Edit", edit_recipe_path(recipe), class: "f6 link dim ph3 pv2 mb2 dib white bg-dark-blue" %>
+          <%= link_to "Delete", recipe_path(recipe), class: "f6 link dim ph3 pv2 mb2 dib white bg-dark-red", method: :delete, data: {confirm: "Are you sure?"} %>
+        <% end %>
+      </div>
+      <small class="gray db pv2 tc">Created <%= time_ago_in_words(recipe.created_at) %> ago, edited <%= time_ago_in_words(recipe.updated_at) %> ago</small>
+    </article>
+  </div>
+<% end %>
