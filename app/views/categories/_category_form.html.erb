@@ -1,16 +1,14 @@
-<div>
+<main class="pa2 black-80 w-20">
   <%= render 'shared/errors', obj: @category %>
   <%= form_with(model: @category, local: true) do |f| %>
-    <div>
-      <p>
-        <%= f.label :name %>
-        <%= f.text_field :name, placeholder: "Category Name" %>
-      </p>
-    </div>
-    <div>
-      <p>
-        <%= f.submit %>
-      </p>
+    <fieldset id="new_recipe" class="ba b--transparent ph0 mh0">
+      <div class="mt3">
+        <%= f.label :name, class: "db fw6 lh-copy f6" %>
+        <%= f.text_field :name, placeholder: "Category Name", class: "pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" %>
+      </div>
+    </fieldset>
+    <div class="">
+      <%= f.submit class: "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" %>
     </div>
   <% end %>
-</div>
+</main>
