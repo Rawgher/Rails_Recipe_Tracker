@@ -1,13 +1,15 @@
-<h1>RECIPE SHOW PAGE</h1>
+<h1 class="tc">RECIPE SHOW PAGE</h1>
 
-<h2><%= @recipe.title %></h2>
-<div><%= simple_format(@recipe.description) %></div>
-<div><%= simple_format(@recipe.image) %></div>
-<% if @recipe.categories.any? %>
-  <p>Categories: <%= render @recipe.categories %></p>
-<% end %>
-<% if logged_in? && (@recipe.user == current_user || current_user.admin?) %>
-  <%= link_to "Edit", edit_recipe_path(@recipe) %>
-  <%= link_to "Delete", recipe_path(@recipe), method: :delete, data: {confirm: "Are you sure?"} %>
-<% end %>
-<small>Created <%= time_ago_in_words(@recipe.created_at) %> ago, edited <%= time_ago_in_words(@recipe.updated_at) %> ago</small>
+<div class="measure center">
+  <h2><%= @recipe.title %></h2>
+  <div><%= simple_format(@recipe.description) %></div>
+  <div><%= simple_format(@recipe.image) %></div>
+  <% if @recipe.categories.any? %>
+    <p>Categories: <%= render @recipe.categories %></p>
+  <% end %>
+  <% if logged_in? && (@recipe.user == current_user || current_user.admin?) %>
+    <%= link_to "Edit", edit_recipe_path(@recipe) %>
+    <%= link_to "Delete", recipe_path(@recipe), method: :delete, data: {confirm: "Are you sure?"} %>
+  <% end %>
+  <small>Created <%= time_ago_in_words(@recipe.created_at) %> ago, edited <%= time_ago_in_words(@recipe.updated_at) %> ago</small>
+</div>
