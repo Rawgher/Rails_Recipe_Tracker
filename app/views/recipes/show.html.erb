@@ -18,7 +18,7 @@
       </div>
     </div>
     <time class="f6 db gray">Created <%= time_ago_in_words(@recipe.created_at) %> ago, edited <%= time_ago_in_words(@recipe.updated_at) %> ago</time>
-    <div class="tc">
+    <div class="tc mt4">
       <% if logged_in? && (@recipe.user == current_user || current_user.admin?) %>
         <%= link_to "Edit", edit_recipe_path(@recipe), class: "f6 link dim ph3 pv2 mb2 dib white bg-dark-blue" %>
         <%= link_to "Delete", recipe_path(@recipe), class: "f6 link dim ph3 pv2 mb2 dib white bg-dark-red", method: :delete, data: {confirm: "Are you sure?"} %>
