@@ -1,22 +1,30 @@
-<% @recipes.each do |recipe| %>
-  <div class="w-25 fl">
-    <article class="bg-white center mw5 ba b--black-10 mv4">
-      <div class="pv2 ph3">
-         <h1 class="f6 ttu tracked tc"><%= link_to recipe.title, recipe_path(recipe) %></h1>
-      </div>
-      <img src="http://tachyons.io/img/cat-720.jpg" class="w-100 db" alt="Closeup photo of a tabby cat yawning.">
-      <div class="pa3">
-        <% if recipe.categories.any? %>
-          <p>Categories: <%= render recipe.categories %></p>
-        <% end %>
-        <div class="tc">
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-image">
+          <img src="http://tachyons.io/img/cat-720.jpg" alt="An image of <%= recipe.title %>">
+        </div>
+        <div class="card-content">
+          <div class="row">
+            <span class="card-title center-align"><%= link_to recipe.title, recipe_path(recipe) %></span>
+          </div>
+          <div class="row">
+            <% if recipe.categories.any? %>
+              <p>Categories: <%= render recipe.categories %></p>
+            <% end %>
+          </div>
+          <div class="row">
+            <small>Created <%= time_ago_in_words(recipe.created_at) %> ago, edited <%= time_ago_in_words(recipe.updated_at) %> ago</small>
+          </div>
+        </div>
+        <div class="card-action center-align">
           <% if logged_in? && (recipe.user == current_user || current_user.admin?) %>
-            <%= link_to "Edit", edit_recipe_path(recipe), class: "f6 link dim ph3 pv2 mb2 dib white bg-dark-blue" %>
-            <%= link_to "Delete", recipe_path(recipe), class: "f6 link dim ph3 pv2 mb2 dib white bg-dark-red", method: :delete, data: {confirm: "Are you sure?"} %>
+            <%= link_to "Edit", edit_recipe_path(recipe), class: "waves-effect waves-light btn-small light-blue lighten-1" %>
+            <%= link_to "Delete", recipe_path(recipe), class: "waves-effect waves-light btn-small red darken-1", method: :delete, data: {confirm: "Are you sure?"} %>
           <% end %>
         </div>
-        <small class="gray db pv2 tc">Created <%= time_ago_in_words(recipe.created_at) %> ago, edited <%= time_ago_in_words(recipe.updated_at) %> ago</small>
       </div>
-    </article>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>

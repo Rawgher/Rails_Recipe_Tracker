@@ -1,8 +1,7 @@
-<h1 class="tc">All Recipes</h1>
+<h1 class="center-align">All Recipes</h1>
 
-<div class="w-100 fl">
-  <%= render 'recipe' %>
-</div>
+<%= render 'recipe' %>
+
 <div class="apple_pagination">
     <%= will_paginate @recipes, :container => false %>
 </div>
