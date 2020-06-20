@@ -1,12 +1,14 @@
-<nav class="flex justify-between bb b--black-10 bg-black">
-  <div class="flex-grow pa3 flex items-center">
-    <%= link_to "Recipes", recipes_path, class: "f6 link dib white dim mr3 mr4-ns" %>
-    <%= link_to "Categories", categories_path, class: "f6 link dib white dim mr3 mr4-ns" %>
-    <% if logged_in? %>
-      <%= link_to "Log Out", logout_path, class: "f6 link dib white dim mr3 mr4-ns", method: :delete %>
-    <% else %>
-      <%= link_to "Sign In", login_path, class: "f6 link dib white dim mr3 mr4-ns" %>
-      <%= link_to "Sign Up", signup_path, class: "f6 link dib white dim mr3 mr4-ns" %>
-    <% end %>
-  </div>
-</nav>
+<nav>
+   <div class="nav-wrapper">
+     <ul id="nav-mobile" class="left hide-on-med-and-down">
+       <li><%= link_to "Recipes", recipes_path %></li>
+       <li><%= link_to "Categories", categories_path %></li>
+       <% if logged_in? %>
+         <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+       <% else %>
+         <li><%= link_to "Sign In", login_path %></li>
+         <li><%= link_to "Sign Up", signup_path %></li>
+       <% end %>
+     </ul>
+   </div>
+ </nav>
