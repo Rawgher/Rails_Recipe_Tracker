@@ -5,13 +5,13 @@
         <div class="card-image">
           <img src="http://tachyons.io/img/cat-720.jpg" alt="An image of <%= recipe.title %>">
         </div>
-        <div class="card-content">
+        <div class="card-content center-align">
           <div class="row">
-            <span class="card-title center-align"><%= link_to recipe.title, recipe_path(recipe) %></span>
+            <span class="card-title"><%= link_to recipe.title, recipe_path(recipe) %></span>
           </div>
           <div class="row">
             <% if recipe.categories.any? %>
-              <p>Categories: <%= render recipe.categories %></p>
+              <%= render recipe.categories %>
             <% end %>
           </div>
           <div class="row">

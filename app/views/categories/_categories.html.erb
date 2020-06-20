@@ -1,14 +1,19 @@
-<% @categories.each do |category| %>
-  <div class="w-25 fl">
-    <article class="bg-white center mw5 ba b--black-10 mv4">
-      <div class="pv2 ph3">
-         <h1 class="f6 ttu tracked tc"><%= link_to category.name, category_path(category) %></h1>
+<div class="row">
+  <% @categories.each do |category| %>
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-content center-align">
+          <div class="row">
+            <span class="card-title"><%= link_to category.name, category_path(category) %></span>
+          </div>
+          <div class="row">
+            <p><%= pluralize(category.recipes.count, "recipe") %></p>
+          </div>
+          <div class="row">
+            <small>Created <%= time_ago_in_words(category.created_at) %> ago, edited <%= time_ago_in_words(category.updated_at) %> ago</small>
+          </div>
+        </div>
       </div>
-      <img src="http://tachyons.io/img/cat-720.jpg" class="w-100 db" alt="Closeup photo of a tabby cat yawning.">
-      <div class="pa3">
-        <small class="gray db pv2 tc"><%= pluralize(category.recipes.count, "recipe") %></small>
-        <small class="gray db pv2 tc">Created <%= time_ago_in_words(category.created_at) %> ago, edited <%= time_ago_in_words(category.updated_at) %> ago</small>
-      </div>
-    </article>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>
