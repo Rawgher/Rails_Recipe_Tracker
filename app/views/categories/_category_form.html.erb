@@ -1,14 +1,10 @@
-<main class="pa2 black-80 measure center">
+<div class="row valign-wrapper">
   <%= render 'shared/errors', obj: @category %>
-  <%= form_with(model: @category, local: true) do |f| %>
-    <fieldset id="new_recipe" class="ba b--transparent ph0 mh0">
-      <div class="mt3">
-        <%= f.label :name, class: "db fw6 lh-copy f6" %>
-        <%= f.text_field :name, placeholder: "Category Name", class: "pa2 input-reset ba bg-transparent w-100" %>
-      </div>
-    </fieldset>
-    <div class="">
-      <%= f.submit class: "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" %>
+  <%= form_with(model: @category, local: true, html: {class: "row center-align", id:"new_category"}) do |f| %>
+    <div class="input-field col s12 m12">
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: "Category Name", class: "validate", type: "text" %>
     </div>
+    <%= f.submit class: "btn waves-effect waves-light" %>
   <% end %>
-</main>
+</div>
