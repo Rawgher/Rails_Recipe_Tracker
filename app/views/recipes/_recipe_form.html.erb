@@ -1,29 +1,18 @@
-<main class="pa2 black-80 measure center">
+<div class="row valign-wrapper">
   <%= render 'shared/errors', obj: @recipe %>
-  <%= form_with(model: @recipe, local: true) do |f| %>
-    <fieldset id="new_recipe" class="ba b--transparent ph0 mh0">
-      <div class="mt3">
-        <%= f.label :title, class: "db fw6 lh-copy f6" %>
-        <%= f.text_field :title, placeholder: "Recipe Name", class: "pa2 input-reset ba bg-transparent w-100" %>
-      </div>
-      <div class="mv3">
-        <%= f.label :description, class: "db fw6 lh-copy f6" %>
-        <%= f.text_area :description, rows: 10, placeholder: "Recipe Instructions", class: "db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2" %>
-      </div>
-      <div class="mt3">
-        <%= f.label :image, class: "db fw6 lh-copy f6" %>
-        <%= f.text_field :image, placeholder: "Image url", class: "pa2 input-reset ba bg-transparent w-100" %>
-      </div>
-      <div class="mt3">
-        <%= f.label :category, class: "db fw6 lh-copy f6" %>
-        <div class="flex items-center mb2">
-        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
-          <% b.label(class: "lh-copy mr2") {b.check_box(class: "mr2") + b.text } %>
-        <% end %>
-      </div>
-    </fieldset>
-    <div class="">
-      <%= f.submit class: "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" %>
+  <%= form_with(model: @recipe, local: true, html: {class: "row center-align", id:"new_recipe"}) do |f| %>
+    <div class="input-field col s12 m6">
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: "Recipe Name", class: "validate", type: "text" %>
     </div>
+    <div class="input-field col s12 m6">
+      <%= f.label :image %>
+      <%= f.text_field :image, placeholder: "Image url", class: "validate", type: "text" %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.label :description %>
+      <%= f.text_area :description, placeholder: "Recipe Instructions", class: "materialize-textarea" %>
+    </div>
+    <%= f.submit class: "btn waves-effect waves-light" %>
   <% end %>
-</main>
+</div>
