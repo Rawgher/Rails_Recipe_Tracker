@@ -15,7 +15,12 @@
     </div>
     <div class="input-field col s12">
       <%= f.label :category %>
-      <%= f.collection_select(:category_ids, Category.all, :id, :name, {prompt: "Please Select From the List (can be empty)"}, {multiple: true}) %>
+      <div class=
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+        <p>
+          <%= cb.label(class: "check-container") {cb.check_box(class: "checkmark") + cb.text } %>
+        </p>
+      <% end %>
     </div>
     <%= f.submit class: "btn waves-effect waves-light" %>
   <% end %>
