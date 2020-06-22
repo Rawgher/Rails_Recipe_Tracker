@@ -13,10 +13,13 @@
       <%= f.label :description %>
       <%= f.text_area :description, placeholder: "Recipe Instructions", class: "materialize-textarea" %>
     </div>
-    <div class="input-field col s12">
+    <div class="col s12">
       <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:item_wrapper_class => 'checkbox_container'} do |cb| %>
         <div class="col m3 s6">
-          <%= cb.label(class: "collection_check_boxes") {cb.check_box(class: "checkmark") + cb.text } %>
+          <label>
+            <%= cb.check_box %>
+            <span><%= cb.text %></span>
+          </label>
         </div>
       <% end %>
     </div>
