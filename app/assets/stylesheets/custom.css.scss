@@ -28,7 +28,9 @@ body {display: flex; min-height: 100vh; flex-direction: column;}
 
 .page-content {flex: 1 0 auto;}
 
-.category-flex {display: flex; flex-direction: row; flex-flow: row wrap;}
-.category-flex-item {margin: 0 10px;}
+.category-flex {display: flex; flex-direction: row; flex-flow: row wrap; margin-bottom: 20px;}
+.category-flex-item {margin: 0 10px 10px;}
+
+.show-image {max-width: 400px; width: 100%;}
 
 .page-footer {padding-top: 0}

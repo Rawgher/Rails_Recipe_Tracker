@@ -1,25 +1,26 @@
-<h1 class="center-align">RECIPE SHOW PAGE</h1>
+<div class="row">
+  <h1 class="center-align"><%= @recipe.title %></h1>
+</div>
+
+<div class="row center-align">
+  <% if @recipe.categories.any? %>
+    <p>Categories: <%= render @recipe.categories %></p>
+  <% end %>
+</div>
 
 <div class="row">
-  <div class="col s12 m4">
-    <img src="http://mrmrs.github.io/photos/cpu.jpg" alt="Photo of a dimly lit room with a computer interface terminal.">
+  <div class="col s12 m4 offset-m1">
+    <img src="http://mrmrs.github.io/photos/cpu.jpg" alt="Photo of a dimly lit room with a computer interface terminal." class="show-image">
   </div>
-  <div class="col s12 m8">
-    <div class="row center-align">
-      <h1><%= @recipe.title %></h1>
-    </div>
-    <div class="row">
-      <% if @recipe.categories.any? %>
-        <p>Categories: <%= render @recipe.categories %></p>
-      <% end %>
-    </div>
-    <div class="row">
+  <div class="col m1"></div>
+  <div class="col s12 m6">
+    <div class="row left-align">
       <p><%= simple_format(@recipe.description) %></p>
     </div>
-    <div class="row">
+    <div class="row center-align">
       <small>Created <%= time_ago_in_words(@recipe.created_at) %> ago, edited <%= time_ago_in_words(@recipe.updated_at) %> ago</small>
     </div>
-    <div class="row">
+    <div class="row center-align">
       <% if logged_in? && (@recipe.user == current_user || current_user.admin?) %>
         <%= link_to "Edit", edit_recipe_path(@recipe), class: "waves-effect waves-light btn-small light-blue lighten-1" %>
         <%= link_to "Delete", recipe_path(@recipe), class: "waves-effect waves-light btn-small red darken-1", method: :delete, data: {confirm: "Are you sure?"} %>
