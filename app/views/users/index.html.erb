@@ -1,16 +1,33 @@
-<h1>User index page</h1>
-<div>
+<h1 class="center-align">User index page</h1>
+<div class="row">
   <% @users.each do |user| %>
-    <%= link_to user.username, user %>
-    <%= pluralize(user.recipes.count, "recipe") %>
-    <% if logged_in? %>
-      <% if user == current_user %>
-        <%= link_to "Edit Profile", edit_user_path(user) %>
-      <% end %>
-      <% if current_user.admin? %>
-        <%= link_to "Delete User", user_path(user), method: :delete, data: { confirm: "Are you sure?" } %>
-      <% end %>
-    <% end %>
-    <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
+    <div class="col s12 m3">
+      <div class="card">
+        <div class="card-content center-align">
+          <div class="row">
+            <span class="card-title"><%= link_to user.username, user %></span>
+          </div>
+          <div class="row">
+            <p><%= pluralize(user.recipes.count, "recipe") %></p>
+          </div>
+          <div class="row">
+            <small>Joined <%= time_ago_in_words(user.created_at) %> ago</small>
+          </div>
+        </div>
+        <% if logged_in? %>
+          <% if user == current_user && !current_user.admin? %>
+            <div class="card-action center-align">
+              <%= link_to "Edit Profile", edit_user_path(user), class: "waves-effect waves-light btn-small light-blue lighten-1" %>
+            </div>
+          <% end %>
+          <% if logged_in? && current_user.admin? %>
+            <div class="card-action center-align">
+              <%= link_to "Edit Profile", edit_user_path(user), class: "waves-effect waves-light btn-small light-blue lighten-1" %>
+              <%= link_to "Delete User", user_path(user), class: "waves-effect waves-light btn-small red darken-1", method: :delete, data: {confirm: "Are you sure?"} %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>
