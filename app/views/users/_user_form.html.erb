@@ -1,20 +1,20 @@
-<article class="pa4 black-80">
+<div class="row">
   <%= render 'shared/errors', obj: @user %>
-  <%= form_with(model: @user, local: true) do |f| %>
-    <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
-      <div class="mt3">
-        <%= f.label :username, class: "db fw4 lh-copy f6" %>
-        <%= f.text_field :username, placeholder: "Enter a username", class: "pa2 input-reset ba bg-transparent w-100 measure" %>
-      </div>
-      <div class="mt3">
-        <%= f.label :email, class: "db fw4 lh-copy f6" %>
-        <%= f.text_field :email, placeholder: "Enter your email address", class: "pa2 input-reset ba bg-transparent w-100 measure" %>
-      </div>
-      <div class="mt3">
-        <%= f.label :password, class: "db fw4 lh-copy f6" %>
-        <%= f.text_field :password, placeholder: "Create a password", class: "b pa2 input-reset ba bg-transparent" %>
-      </div>
-    </fieldset>
-    <div class="mt3"><%= f.submit(@user.new_record? ? "Sign up" : "Update Account", class: "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6") %></div>
+  <%= form_with(model: @user, local: true, html: {class: "row center-align", id:"new_user"}) do |f| %>
+    <div class="input-field col s12">
+      <%= f.label :username %>
+      <%= f.text_field :username, placeholder: "Enter a username", class: "validate", type: "text" %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.label :email %>
+      <%= f.text_field :email, placeholder: "Enter your email address", class: "validate", type: "text" %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.label :password %>
+      <%= f.text_field :password, placeholder: "Create a password", class: "validate", type: "text" %>
+    </div>
+    <div class="row">
+      <%= f.submit(@user.new_record? ? "Sign up" : "Update Account", class: "btn waves-effect waves-light") %>
+    </div>
   <% end %>
-</article>
+</div>

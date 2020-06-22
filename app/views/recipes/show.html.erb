@@ -18,9 +18,6 @@
       <p><%= simple_format(@recipe.description) %></p>
     </div>
     <div class="row center-align">
-      <small>Created <%= time_ago_in_words(@recipe.created_at) %> ago, edited <%= time_ago_in_words(@recipe.updated_at) %> ago</small>
-    </div>
-    <div class="row center-align">
       <% if logged_in? && (@recipe.user == current_user || current_user.admin?) %>
         <%= link_to "Edit", edit_recipe_path(@recipe), class: "waves-effect waves-light btn-small light-blue lighten-1" %>
         <%= link_to "Delete", recipe_path(@recipe), class: "waves-effect waves-light btn-small red darken-1", method: :delete, data: {confirm: "Are you sure?"} %>
