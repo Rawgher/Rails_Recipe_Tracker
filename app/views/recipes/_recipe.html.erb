@@ -3,7 +3,7 @@
     <div class="col s12 m3">
       <div class="card">
         <div class="card-image">
-          <img src="http://tachyons.io/img/cat-720.jpg" alt="An image of <%= recipe.title %>">
+          <%= image_tag recipe.image, alt: "Photo of #{recipe.title}", class: "image_on_card" %>
         </div>
         <div class="card-content center-align">
           <div class="row">
