@@ -1,13 +1,21 @@
 <div class="row">
   <%= render 'shared/errors', obj: @recipe %>
   <%= form_with(model: @recipe, local: true, html: {class: "row center-align", id:"new_recipe"}) do |f| %>
-    <div class="input-field col s12 m6">
+    <div class="input-field col s12 m4">
       <%= f.label :title %>
       <%= f.text_field :title, placeholder: "Recipe Name", class: "validate", type: "text" %>
     </div>
-    <div class="input-field col s12 m6">
+    <div class="input-field col s12 m4">
       <%= f.label :image %>
-      <%= f.text_field :image, placeholder: "Image url", class: "validate", type: "text" %>
+      <%= f.text_field :image, placeholder: "Image Url", class: "validate", type: "text" %>
+    </div>
+    <div class="input-field col s12 m4">
+      <%= f.label :url %>
+      <%= f.text_field :url, placeholder: "Original Site Url", class: "validate", type: "text" %>
+    </div>
+    <div class="input-field col s12">
+      <%= f.label :ingredients %>
+      <%= f.text_area :ingredients, placeholder: "List of Ingredients", class: "materialize-textarea" %>
     </div>
     <div class="input-field col s12">
       <%= f.label :description %>
