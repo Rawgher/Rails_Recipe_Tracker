@@ -1,8 +1,8 @@
-<div class="row">
-  <h1 class="center-align"><%= @recipe.title %></h1>
-</div>
-
 <div class="row center-align">
+  <h1><%= @recipe.title %></h1>
+  <% if @recipe.url %>
+    <small><%= link_to "Original Recipe", @recipe.url, target: "_blank" %></small>
+  <% end %>
   <% if @recipe.categories.any? %>
     <p>Categories: <%= render @recipe.categories %></p>
   <% end %>
@@ -14,6 +14,9 @@
   </div>
   <div class="col m1"></div>
   <div class="col s12 m6">
+    <div class="row left-align">
+      <p><%= simple_format(@recipe.ingredients) %></p>
+    </div>
     <div class="row left-align">
       <p><%= simple_format(@recipe.description) %></p>
     </div>
